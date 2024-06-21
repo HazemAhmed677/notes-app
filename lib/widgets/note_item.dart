@@ -17,7 +17,7 @@ class NoteItem extends StatelessWidget {
         children: [
           ListTile(
             title: const Padding(
-              padding: EdgeInsets.only(top: 20, bottom: 20, left: 16),
+              padding: EdgeInsets.only(top: 22, bottom: 14, left: 16),
               child: Text(
                 'Flutter tips',
                 style: TextStyle(
@@ -26,13 +26,18 @@ class NoteItem extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
             ),
-            trailing: const Icon(
-              Icons.delete,
-              color: Colors.black,
-              size: 32,
+            trailing: const Padding(
+              padding: EdgeInsets.only(
+                bottom: 50,
+              ),
+              child: Icon(
+                Icons.delete,
+                color: Colors.black,
+                size: 32,
+              ),
             ),
             subtitle: Padding(
-              padding: const EdgeInsets.only(left: 16, bottom: 26),
+              padding: const EdgeInsets.only(left: 16, bottom: 22),
               child: Text(
                 'Build your Career with Tharwat Samy',
                 style: TextStyle(

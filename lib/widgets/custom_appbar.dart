@@ -5,19 +5,20 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Text(
-          'Notes',
-          style: TextStyle(
-            fontSize: 30,
+    return Padding(
+      padding: const EdgeInsets.only(
+        bottom: 10,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Text(
+            'Notes',
+            style: TextStyle(
+              fontSize: 30,
+            ),
           ),
-        ),
-        Material(
-          elevation: 10,
-          borderRadius: BorderRadius.circular(12),
-          child: InkWell(
+          InkWell(
             onTap: () {},
             borderRadius: BorderRadius.circular(12),
             child: Container(
@@ -33,9 +34,9 @@ class CustomAppBar extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

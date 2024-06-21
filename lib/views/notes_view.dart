@@ -7,19 +7,22 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: 14, right: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 14),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            CustomAppBar(),
-            SizedBox(
-              height: 10,
-            ),
-            NoteItem(),
+            const CustomAppBar(),
+            Expanded(
+                child: ListView.builder(
+              itemBuilder: (context, index) => const Padding(
+                padding: EdgeInsets.only(bottom: 10),
+                child: NoteItem(),
+              ),
+            ))
           ],
         ),
       ),
