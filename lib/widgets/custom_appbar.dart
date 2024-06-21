@@ -24,13 +24,13 @@ class CustomAppBar extends StatelessWidget {
               height: 50,
               width: 50,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3),
+                color: Colors.white.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Icon(
                 Icons.search_rounded,
                 size: 24,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
           ),
