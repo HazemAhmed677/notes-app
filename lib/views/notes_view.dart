@@ -8,6 +8,21 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Container(
+        height: 55,
+        width: 55,
+        decoration: BoxDecoration(
+            color: Colors.blue.withOpacity(0.8),
+            borderRadius: BorderRadius.circular(50)),
+        child: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.add,
+            size: 30,
+            color: Colors.black,
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14),
         child: Column(
