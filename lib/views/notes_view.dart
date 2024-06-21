@@ -8,7 +8,7 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: 12, right: 16),
+        padding: EdgeInsets.only(left: 14, right: 14),
         child: Column(
           children: [
             SizedBox(
