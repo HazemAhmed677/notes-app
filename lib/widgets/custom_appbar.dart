@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({super.key, required this.title, required this.icon});
+  final String title;
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -9,32 +11,39 @@ class CustomAppBar extends StatelessWidget {
         bottom: 15,
         top: 10,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          const Text(
-            'Notes',
-            style: TextStyle(
-              fontSize: 30,
-            ),
+          const SizedBox(
+            height: 40,
           ),
-          InkWell(
-            onTap: () {},
-            borderRadius: BorderRadius.circular(16),
-            child: Container(
-              height: 45,
-              width: 45,
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.1),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 30,
+                ),
+              ),
+              InkWell(
+                onTap: () {},
                 borderRadius: BorderRadius.circular(16),
-              ),
-              child: const Icon(
-                Icons.search_rounded,
-                size: 24,
-                color: Colors.white,
-              ),
-            ),
-          )
+                child: Container(
+                  height: 45,
+                  width: 45,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Icon(
+                    icon,
+                    size: 24,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );

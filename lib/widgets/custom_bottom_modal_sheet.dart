@@ -7,23 +7,29 @@ class AddBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(children: [
-          CustomTextField(hint: "Title"),
+          Padding(
+            padding: EdgeInsets.only(top: 34),
+            child: CustomTextField(hint: "Title"),
+          ),
           SizedBox(
             height: 20,
           ),
           CustomTextField(
             hint: "Content",
-            maxLines: 5,
-            top: 24,
+            maxLines: 6,
+            top: 32,
           ),
           SizedBox(
-            height: 50,
+            height: 30,
           ),
-          AddButton(),
+          Padding(
+            padding: EdgeInsets.only(bottom: 20),
+            child: AddButton(),
+          ),
         ]),
       ),
     );

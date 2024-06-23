@@ -6,14 +6,16 @@ class AddButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {},
+      splashColor: kPrimaryColor,
+      borderRadius: BorderRadius.circular(10),
       child: Container(
         height: 55,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: kPrimaryColor,
+          color: kPrimaryColor.withOpacity(0.9),
         ),
         child: const Center(
           child: Text(
