@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/constants.dart';
 import 'package:notes_app/widgets/custom_bottom_modal_sheet.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
@@ -10,15 +11,16 @@ class CustomFloatingActionButton extends StatelessWidget {
       height: 55,
       width: 55,
       decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 9, 206, 220),
-          borderRadius: BorderRadius.circular(50)),
+          color: kPrimaryColor, borderRadius: BorderRadius.circular(50)),
       child: IconButton(
         onPressed: () {
           showModalBottomSheet(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadiusDirectional.circular(30)),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadiusDirectional.only(
+                  topStart: Radius.circular(20), topEnd: Radius.circular(20)),
+            ),
             context: context,
-            builder: (context) => const CustomBottomModalSheet(),
+            builder: (context) => const AddBottomSheet(),
           );
         },
         icon: const Icon(
