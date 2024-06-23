@@ -15,11 +15,18 @@ class CustomFloatingActionButton extends StatelessWidget {
       child: IconButton(
         onPressed: () {
           showModalBottomSheet(
+            sheetAnimationStyle: AnimationStyle(
+              curve: Curves.easeIn,
+              duration: const Duration(
+                milliseconds: 350,
+              ),
+            ),
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadiusDirectional.only(
                   topStart: Radius.circular(20), topEnd: Radius.circular(20)),
             ),
             context: context,
+            isScrollControlled: false,
             builder: (context) => const AddBottomSheet(),
           );
         },
