@@ -24,23 +24,34 @@ class CustomTextFormField extends StatelessWidget {
       cursorColor: kPrimaryColor,
       cursorErrorColor: kPrimaryColor,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.only(left: 10, top: top),
+        contentPadding: EdgeInsets.only(
+          left: 10,
+          top: top,
+        ),
         hintText: hint,
         errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.white),
+          borderSide: const BorderSide(
+            color: Colors.white,
+          ),
           borderRadius: BorderRadius.circular(10),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: kPrimaryColor),
+          borderSide: const BorderSide(
+            color: kPrimaryColor,
+          ),
           borderRadius: BorderRadius.circular(10),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Colors.white),
+          borderSide: const BorderSide(
+            color: Colors.white,
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: kPrimaryColor),
+          borderSide: const BorderSide(
+            color: kPrimaryColor,
+          ),
         ),
       ),
     );
