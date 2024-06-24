@@ -7,8 +7,8 @@ class CustomTextFormField extends StatelessWidget {
     required this.hint,
     this.maxLines = 1,
     this.top = 0,
-    required this.validator,
-    required this.onSaved,
+    this.validator,
+    this.onSaved,
   });
   final String hint;
   final int maxLines;
