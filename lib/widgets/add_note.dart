@@ -69,8 +69,6 @@ class _AddNoteState extends State<AddNote> {
                 onTep: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    Navigator.of(context).pop();
-                    // hive
                   }
                   autovalidateMode = AutovalidateMode.always;
                 },
