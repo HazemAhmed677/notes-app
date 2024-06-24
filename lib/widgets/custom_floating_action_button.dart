@@ -15,6 +15,7 @@ class CustomFloatingActionButton extends StatelessWidget {
       child: IconButton(
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             sheetAnimationStyle: AnimationStyle(
               curve: Curves.easeIn,
               duration: const Duration(
@@ -26,7 +27,6 @@ class CustomFloatingActionButton extends StatelessWidget {
                   topStart: Radius.circular(20), topEnd: Radius.circular(20)),
             ),
             context: context,
-            isScrollControlled: false,
             builder: (context) => const AddBottomSheet(),
           );
         },
