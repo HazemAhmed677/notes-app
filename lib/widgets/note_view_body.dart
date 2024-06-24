@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
-import 'package:notes_app/widgets/note_item.dart';
+import 'package:notes_app/widgets/notes_list_view.dart';
 
-class NoteViewBody extends StatelessWidget {
+class NoteViewBody extends StatefulWidget {
   const NoteViewBody({super.key});
 
   @override
+  State<NoteViewBody> createState() => _NoteViewBodyState();
+}
+
+class _NoteViewBodyState extends State<NoteViewBody> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    List<NoteModel>? notes = BlocProvider.of<NotesCubit>(context).notes;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: Column(
@@ -16,15 +32,8 @@ class NoteViewBody extends StatelessWidget {
             icon: Icons.search_rounded,
           ),
           Expanded(
-              child: ListView.builder(
-            padding: EdgeInsets.zero,
-            itemBuilder: (context, index) => const Padding(
-              padding: EdgeInsets.only(
-                bottom: 5,
-                top: 4,
-              ),
-              child: NoteItem(),
-            ),
+              child: NotesListView(
+            notes: notes,
           ))
         ],
       ),
