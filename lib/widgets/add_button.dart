@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
 class AddButton extends StatelessWidget {
-  const AddButton({super.key});
-
+  const AddButton({
+    super.key,
+    required this.onTep,
+  });
+  final Function()? onTep;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTep,
       splashColor: kPrimaryColor,
       borderRadius: BorderRadius.circular(10),
       child: Container(
