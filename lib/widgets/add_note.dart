@@ -70,8 +70,6 @@ class _AddNoteState extends State<AddNote> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     Navigator.of(context).pop();
-                    print(title);
-                    print(content);
                     // hive
                   }
                   autovalidateMode = AutovalidateMode.always;
