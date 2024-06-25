@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/widgets/color_item.dart';
 
 class ListOfColors extends StatefulWidget {
   const ListOfColors({super.key});
@@ -8,40 +11,26 @@ class ListOfColors extends StatefulWidget {
 }
 
 class _ListOfColorsState extends State<ListOfColors> {
-  List<Color> colorsList = [
-    Colors.red,
-    Colors.pink,
-    Colors.yellow,
-    Colors.purple,
-    Colors.green,
-    Colors.white,
-    Colors.black,
-  ];
-  int index = 0;
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    List<Color> colorsList = BlocProvider.of<NotesCubit>(context).colorsList;
     return SizedBox(
-      height: 80,
+      height: 72,
       child: ListView.builder(
         itemCount: colorsList.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return (index < colorsList.length - 1)
-              ? Padding(
-                  padding: const EdgeInsets.only(right: 12),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(90),
-                    onTap: () {},
-                    child: CircleAvatar(
-                      radius: 40,
-                      backgroundColor: colorsList[index].withOpacity(0.9),
-                    ),
-                  ),
-                )
-              : CircleAvatar(
-                  radius: 40,
-                  backgroundColor: colorsList[index].withOpacity(0.9),
-                );
+          return GestureDetector(
+            onTap: () {
+              currentIndex = index;
+              setState(() {});
+            },
+            child: ColorItem(
+              index: index,
+              isActive: (currentIndex == index),
+            ),
+          );
         },
       ),
     );
