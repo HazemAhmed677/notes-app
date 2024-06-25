@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_states.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/notes_list_view.dart';
@@ -21,21 +22,26 @@ class _NoteViewBodyState extends State<NoteViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    List<NoteModel>? notes = BlocProvider.of<NotesCubit>(context).notes;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 22),
-      child: Column(
-        children: [
-          const CustomAppBar(
-            title: "Notes",
-            icon: Icons.search_rounded,
+    List<NoteModel>? notes;
+    return BlocBuilder<NotesCubit, NotesStates>(
+      builder: (context, state) {
+        notes = BlocProvider.of<NotesCubit>(context).notes;
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 22),
+          child: Column(
+            children: [
+              const CustomAppBar(
+                title: "Notes",
+                icon: Icons.search_rounded,
+              ),
+              Expanded(
+                  child: NotesListView(
+                notes: notes,
+              ))
+            ],
           ),
-          Expanded(
-              child: NotesListView(
-            notes: notes,
-          ))
-        ],
-      ),
+        );
+      },
     );
   }
 }

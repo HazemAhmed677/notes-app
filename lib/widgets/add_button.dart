@@ -24,12 +24,7 @@ class AddButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: kPrimaryColor.withOpacity(0.9),
         ),
-        child: BlocConsumer<AddNoteCubit, AddNoteStates>(
-          listener: (context, state) {
-            if (state is SuccessAddNoteState) {
-              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-            }
-          },
+        child: BlocBuilder<AddNoteCubit, AddNoteStates>(
           builder: (context, state) {
             return Center(
               child: (state is LoadingAddNoteState)
