@@ -9,15 +9,19 @@ class CustomTextFormField extends StatelessWidget {
     this.top = 0,
     this.validator,
     this.onSaved,
+    this.onChanged,
   });
+
   final String hint;
   final int maxLines;
   final double top;
   final String? Function(String?)? validator;
   final Function(String?)? onSaved;
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       onSaved: onSaved,
       validator: validator,
       maxLines: maxLines,

@@ -15,6 +15,7 @@ class CustomFloatingActionButton extends StatelessWidget {
       child: IconButton(
         onPressed: () {
           showModalBottomSheet(
+            clipBehavior: Clip.hardEdge,
             isScrollControlled: true,
             sheetAnimationStyle: AnimationStyle(
               curve: Curves.easeIn,

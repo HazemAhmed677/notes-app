@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/constants.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
-import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/add_button.dart';
 import 'package:notes_app/widgets/custom_text_form_field.dart';
+import 'package:notes_app/widgets/list_of_colors.dart';
 
 class AddNote extends StatefulWidget {
   const AddNote({
@@ -66,7 +66,11 @@ class _AddNoteState extends State<AddNote> {
               top: 32,
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
+            ),
+            const ListOfColors(),
+            const SizedBox(
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 20),
