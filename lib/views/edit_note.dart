@@ -4,6 +4,7 @@ import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/custom_text_form_field.dart';
+import 'package:notes_app/widgets/edit_list_color.dart';
 
 // ignore: must_be_immutable
 class EditNote extends StatefulWidget {
@@ -56,6 +57,10 @@ class _EditNoteState extends State<EditNote> {
               maxLines: 10,
               top: 26,
             ),
+            const SizedBox(
+              height: 40,
+            ),
+            EditListColor(note: widget.note)
           ],
         ),
       ),

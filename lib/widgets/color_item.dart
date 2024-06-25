@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/constants.dart';
 
 class ColorItem extends StatelessWidget {
   const ColorItem({
@@ -12,7 +11,7 @@ class ColorItem extends StatelessWidget {
   final bool isActive;
   @override
   Widget build(BuildContext context) {
-    List<Color> colorsList = BlocProvider.of<NotesCubit>(context).colorsList;
+    List<Color> colorsList = kColorsList;
     return (isActive)
         ? SizedBox(
             height: 72,

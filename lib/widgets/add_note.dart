@@ -82,9 +82,8 @@ class _AddNoteState extends State<AddNote> {
                     NoteModel note = NoteModel(
                       title: title!,
                       subTitle: content!,
-                      color: BlocProvider.of<NotesCubit>(context)
-                          .colorsList[
-                              BlocProvider.of<NotesCubit>(context).currentIndex]
+                      color: kColorsList[
+                              BlocProvider.of<NotesCubit>(context).indexOfColor]
                           .value,
                       date: kFormatter.format(DateTime.now()).toString(),
                     );
