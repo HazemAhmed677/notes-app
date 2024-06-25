@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/constants.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note.dart';
 
@@ -12,20 +14,20 @@ class NoteItem extends StatelessWidget {
   final NoteModel note;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const EditNote(),
-          ),
-        );
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: const Color(0xffFFCC82),
-          borderRadius: BorderRadius.circular(14),
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Color(note.color),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const EditNote(),
+            ),
+          );
+        },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
@@ -40,14 +42,23 @@ class NoteItem extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              trailing: const Padding(
-                padding: EdgeInsets.only(
+              trailing: Padding(
+                padding: const EdgeInsets.only(
                   bottom: 50,
                 ),
-                child: Icon(
-                  Icons.delete,
-                  color: Colors.black,
-                  size: 32,
+                child: SizedBox(
+                  width: 30,
+                  child: GestureDetector(
+                    onTap: () {
+                      note.delete();
+                      BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                    },
+                    child: const Icon(
+                      FontAwesomeIcons.trash,
+                      color: Colors.black,
+                      size: 24,
+                    ),
+                  ),
                 ),
               ),
               subtitle: Padding(
