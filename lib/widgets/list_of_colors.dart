@@ -5,15 +5,14 @@ import 'package:notes_app/widgets/color_item.dart';
 
 class ListOfColors extends StatefulWidget {
   const ListOfColors({super.key});
-
   @override
   State<ListOfColors> createState() => _ListOfColorsState();
 }
 
 class _ListOfColorsState extends State<ListOfColors> {
-  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    int currentIndex = BlocProvider.of<NotesCubit>(context).currentIndex;
     List<Color> colorsList = BlocProvider.of<NotesCubit>(context).colorsList;
     return SizedBox(
       height: 72,
@@ -24,6 +23,7 @@ class _ListOfColorsState extends State<ListOfColors> {
           return GestureDetector(
             onTap: () {
               currentIndex = index;
+              BlocProvider.of<NotesCubit>(context).currentIndex = index;
               setState(() {});
             },
             child: ColorItem(

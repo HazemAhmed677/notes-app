@@ -5,6 +5,7 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/custom_text_form_field.dart';
 
+// ignore: must_be_immutable
 class EditNote extends StatefulWidget {
   EditNote({super.key, required this.note});
   NoteModel note;
