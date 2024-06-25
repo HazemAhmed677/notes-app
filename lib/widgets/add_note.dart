@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/constants.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/add_button.dart';
 import 'package:notes_app/widgets/custom_text_form_field.dart';
@@ -69,16 +71,16 @@ class _AddNoteState extends State<AddNote> {
             Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: AddButton(
-                onTep: () {
+                onTep: () async {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     NoteModel note = NoteModel(
                       title: title!,
                       subTitle: content!,
                       color: Colors.blue.value,
-                      date: DateTime.now().toString(),
+                      date: kFormatter.format(DateTime.now()).toString(),
                     );
-                    BlocProvider.of<AddNoteCubit>(context).addNote(note);
+                    await BlocProvider.of<AddNoteCubit>(context).addNote(note);
                   }
                   autovalidateMode = AutovalidateMode.always;
                 },

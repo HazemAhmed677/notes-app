@@ -44,13 +44,14 @@ class NoteItem extends StatelessWidget {
               ),
               trailing: Padding(
                 padding: const EdgeInsets.only(
-                  bottom: 50,
+                  bottom: 10,
                 ),
                 child: SizedBox(
                   width: 30,
+                  height: 50,
                   child: GestureDetector(
-                    onTap: () {
-                      note.delete();
+                    onTap: () async {
+                      await note.delete();
                       BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                     },
                     child: const Icon(
@@ -78,7 +79,7 @@ class NoteItem extends StatelessWidget {
                 bottom: 20,
               ),
               child: Text(
-                kFormatter.format(DateTime.parse(note.date)),
+                note.date,
                 style: TextStyle(
                   color: Colors.black.withOpacity(0.4),
                 ),
