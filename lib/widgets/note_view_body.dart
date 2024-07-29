@@ -35,9 +35,10 @@ class _NoteViewBodyState extends State<NoteViewBody> {
                 icon: Icons.search_rounded,
               ),
               Expanded(
-                  child: NotesListView(
-                notes: notes,
-              ))
+                child: NotesListView(
+                  notes: notes,
+                ),
+              ),
             ],
           ),
         );

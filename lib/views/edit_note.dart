@@ -19,6 +19,7 @@ class _EditNoteState extends State<EditNote> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22.0),
         child: Column(
@@ -58,7 +59,7 @@ class _EditNoteState extends State<EditNote> {
               top: 26,
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             EditListColor(note: widget.note)
           ],
