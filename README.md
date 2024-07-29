@@ -1,16 +1,17 @@
-# notes_app
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h1>Notes App</h1>
+<hr><p>A minimalist note-taking app designed for quick and easy note management.</p><h2>Technologies Used</h2>
+<hr><ul>
+<li>Flutter</li>
+</ul><ul>
+<li>Bloc/Cubit</li>
+</ul><ul>
+<li>Hive</li>
+</ul><h2>Features</h2>
+<hr><ul>
+<li>Create, edit, and delete notes</li>
+</ul><ul>
+<li>Customize notes with colors</li>
+</ul><ul>
+<li>Simple and intuitive user interface</li>
+</ul><h2>Project Status</h2>
+<hr><p>Completed</p>
